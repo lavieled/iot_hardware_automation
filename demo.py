@@ -32,7 +32,7 @@ def main():
             print(f"  - {endpoint_info['serial_number']} (Battery: {endpoint_info['battery']}mA, Version: {endpoint_info['version']})")
     
     # Demo OTA update
-    print("\n🔄 OTA Update Demo:")
+    print("\n OTA Update Demo:")
     node_uuid = "AHN2_TBCDB1045001"
     ota_channel = f"OTA_{node_uuid}"
     
@@ -54,7 +54,7 @@ def main():
     print(f"New version: {updated_node_info['version']}")
     
     # Demo Endpoint DFU
-    print("\n🔧 Endpoint DFU Demo:")
+    print("\n Endpoint DFU Demo:")
     endpoint_serial = "EP1_001"
     
     # Get current endpoint info
