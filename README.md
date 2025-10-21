@@ -19,6 +19,7 @@ This project implements a small testable IoT system in Python with end-to-end te
 
 ```
 iot_hardware_automation/
+├── .gitignore             # Git ignore file
 ├── src/
 │   ├── __init__.py
 │   ├── models.py          # Domain models (Node, Endpoint, etc.)
@@ -29,6 +30,8 @@ iot_hardware_automation/
 │   ├── iot_automation_tests.robot  # Main test scenarios
 │   └── additional_tests.robot      # Additional test cases
 ├── requirements.txt       # Python dependencies
+├── demo.py               # System demonstration
+├── run_tests.py          # Test runner script
 └── README.md             # This file
 ```
 
@@ -68,16 +71,13 @@ This project uses the following Python libraries and frameworks:
 - **pytest (7.4.3)**: Python unit testing framework
   - Used for: Unit tests in `tests/test_models.py`
   - Command: `python -m pytest tests/ -v`
-  - Features: Test discovery, assertions, fixtures, parametrization
 
 - **pytest-cov (4.1.0)**: Coverage plugin for pytest
   - Used for: Code coverage reporting
-  - Provides: Test coverage metrics and reports
 
 - **Robot Framework (6.1.1)**: Generic open source automation framework
   - Used for: End-to-end integration tests
   - Command: `python -m robot robot_tests/`
-  - Features: Keyword-driven testing, readable test syntax, extensive libraries
 
 #### **Built-in Python Libraries Used**
 - **dataclasses**: For clean data structure definitions (Node, Endpoint classes)
@@ -108,6 +108,18 @@ This project uses the following Python libraries and frameworks:
    ```bash
    python -m pytest tests/ -v
    ```
+
+## Quick Start
+
+Run the demo to see the system in action:
+```bash
+python demo.py
+```
+
+Run all tests:
+```bash
+python run_tests.py
+```
 
 ## Running Tests
 
@@ -168,6 +180,42 @@ Robot Framework will generate:
   2. Attempt OTA update
   3. Verify update fails and version remains unchanged
   4. Test invalid artifact format validation
+
+## Additional Test Scenarios
+
+The `additional_tests.robot` file contains extended test coverage beyond the required scenarios:
+
+### 4. API Endpoint Validation Test
+- **Purpose**: Test API endpoint validation for different node types
+- **Steps**:
+  1. Test AHN2 API endpoint validation
+  2. Test Cassia API endpoint validation  
+  3. Test Moxa API endpoint validation
+  4. Verify correct UUIDs and node information
+
+### 5. OTA Channel Management Test
+- **Purpose**: Test OTA channel management operations
+- **Steps**:
+  1. Clear non-existent version (should fail)
+  2. Add version to OTA channel
+  3. Verify version is in channel
+  4. Clear version from channel
+  5. Verify version is removed
+
+### 6. Battery Threshold Test
+- **Purpose**: Test battery threshold constraints for different endpoint types
+- **Steps**:
+  1. Test EP1 threshold (2500mA) with below-threshold battery
+  2. Test EP2 threshold (2500mA) with above-threshold battery
+  3. Test Canary threshold (3600mA) with below-threshold battery
+  4. Verify battery levels are correctly set and retrieved
+
+### 7. Version Artifact Format Test
+- **Purpose**: Test version artifact format validation
+- **Steps**:
+  1. Test valid artifact formats (ahn2_34.swu, cassia_35.swu, moxa_36.swu)
+  2. Test invalid artifact formats (invalid.swu, ahn2.swu, ahn2_abc.swu)
+  3. Verify proper validation and error handling
 
 ## API Reference
 
