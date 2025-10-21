@@ -1,6 +1,6 @@
 # IoT Hardware Automation System
 
-This project implements a small testable IoT system in Python with end-to-end tests in Robot Framework. The system simulates an IoT environment with 3 Nodes (gateways) and 3 Endpoints (sensors) for hardware automation testing.
+This project implements a small testable IoT system in Python with tests in Robot Framework. The system simulates an IoT environment with 3 Nodes (gateways) and 3 Endpoints (sensors) for hardware automation testing.
 
 ## System Overview
 
