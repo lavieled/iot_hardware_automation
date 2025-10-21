@@ -41,18 +41,18 @@ def main():
     
     success = True
     
-    # Run unit tests
+    # unit tests
     if not run_command("python -m pytest tests/ -v", "Unit Tests"):
         success = False
     
-    # Run Robot Framework tests
+    # Robot Framework tests
     if not run_command("python -m robot robot_tests/iot_automation_tests.robot", "Robot Framework - Main Tests"):
         success = False
     
     if not run_command("python -m robot robot_tests/additional_tests.robot", "Robot Framework - Additional Tests"):
         success = False
     
-    # Summary
+    # Test results
     print(f"\n{'='*50}")
     if success:
         print(" All tests completed successfully!")
