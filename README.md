@@ -95,7 +95,7 @@ This project uses the following Python libraries and frameworks:
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone [<repository-url>](https://github.com/lavieled/iot_hardware_automation.git)
    cd iot_hardware_automation
    ```
 
