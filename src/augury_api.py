@@ -119,7 +119,7 @@ class AuguryAPI:
             if len(parts) != 2:
                 return False
             version_part = parts[1].replace('.swu', '')
-            int(version_part)  # Check if version is numeric
+            int(version_part)  # Check if version is number
             return True
         except (ValueError, IndexError):
             return False
@@ -174,11 +174,11 @@ class AuguryAPI:
             version_num = int(version)
             current_version = int(node.version)
             
-            # Version should be higher than current
+            # Version should be newer than current
             if version_num <= current_version:
                 return False
             
-            # Check if there's a matching artifact for this hardware type
+            # Check for a matching artifact for this hardware type
             ota_channel = node.ota_channel
             if ota_channel not in self._ota_channels:
                 return False
@@ -191,7 +191,7 @@ class AuguryAPI:
                     matching_artifact = artifact
                     break
             
-            # If no matching artifact found, it's incompatible
+            # no matching artifact found, incompatible
             if not matching_artifact:
                 return False
             

@@ -75,7 +75,7 @@ class Node:
     def update_version(self, new_version: str) -> bool:
         """Update node version"""
         try:
-            # Validate version format
+            # Validate version format and ensure it's higher than current
             if not self._is_valid_version(new_version):
                 return False
             self.version = new_version
@@ -84,10 +84,11 @@ class Node:
             return False
     
     def _is_valid_version(self, version: str) -> bool:
-        """Validate version format"""
+        """Validate version format and ensure it's higher than current version"""
         try:
             version_num = int(version)
-            return version_num > 0
+            current_version = int(self.version)
+            return version_num > current_version
         except ValueError:
             return False
 
