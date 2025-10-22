@@ -38,24 +38,24 @@ iot_hardware_automation/
 ## System Specifications
 
 ### Node UUID Format
-- Format: `<hardware_type>_string`
-- Example: `MOXA_TBCDB1045001`
+- Format: <hardware_type>_string
+- Example: MOXA_TBCDB1045001
 
 ### Battery Thresholds
 - EP1 and EP2: 2500mA
 - Canary: 3600mA
 
 ### Version Artifacts
-- Format: `<hardware_type>_version_string.swu`
-- Example: `moxa_33.swu`
+- Format: <hardware_type>_version_string.swu
+- Example: moxa_33.swu
 
 ### API Endpoints
-- AHN2 and Cassia: `buildroot_api.azure`
-- Moxa: `moxa_api.azure`
+- AHN2 and Cassia: buildroot_api.azure
+- Moxa: moxa_api.azure
 
 ### OTA Channel Format
-- Format: `OTA_<uuid>`
-- Example: `OTA_AHN2_TBCDB1045001`
+- Format: OTA_<uuid>
+- Example: OTA_AHN2_TBCDB1045001
 
 ## Installation & Setup
 
@@ -69,15 +69,15 @@ This project uses the following Python libraries and frameworks:
 
 #### **Core Testing Frameworks**
 - **pytest (7.4.3)**: Python unit testing framework
-  - Used for: Unit tests in `tests/test_models.py`
-  - Command: `python -m pytest tests/ -v`
+  - Used for: Unit tests in tests/test_models.py
+  - Command: python -m pytest tests/ -v
 
 - **pytest-cov (4.1.0)**: Coverage plugin for pytest
   - Used for: Code coverage reporting
 
 - **Robot Framework (6.1.1)**: Generic open source automation framework
   - Used for: End-to-end integration tests
-  - Command: `python -m robot robot_tests/`
+  - Command: python -m robot robot_tests/
 
 #### **Built-in Python Libraries Used**
 - **dataclasses**: For clean data structure definitions (Node, Endpoint classes)
@@ -94,65 +94,65 @@ This project uses the following Python libraries and frameworks:
 ### Installation Steps
 
 1. **Clone the repository**
-   ```bash
+   
    git clone https://github.com/lavieled/iot_hardware_automation.git
    cd iot_hardware_automation
-   ```
+   
 
 2. **Install dependencies**
-   ```bash
+   
    pip install -r requirements.txt
-   ```
+   
 
 3. **Verify installation**
-   ```bash
+   
    python -m pytest tests/ -v
-   ```
+   
 
 ## Quick Start
 
 Run the demo to see the system in action:
-```bash
+
 python demo.py
-```
+
 
 Run all tests:
-```bash
+
 python run_tests.py
-```
+
 
 ## Running Tests
 
 ### Unit Tests
 Run the Python unit tests:
-```bash
+
 python -m pytest tests/ -v
-```
+
 
 ### Robot Framework Tests
 Run the Robot Framework test suites:
 
 **Main test scenarios:**
-```bash
+
 python -m robot robot_tests/iot_automation_tests.robot
-```
+
 
 **Additional test cases:**
-```bash
+
 python -m robot robot_tests/additional_tests.robot
-```
+
 
 **All tests:**
-```bash
+
 python -m robot robot_tests/
-```
+
 
 ### Test Output
 Robot Framework will generate:
 - Console output with test results
-- `log.html` - Detailed test execution log
-- `report.html` - Test execution report
-- `output.xml` - Machine-readable test results
+- log.html - Detailed test execution log
+- report.html - Test execution report
+- output.xml - Machine-readable test results
 
 ## Test Scenarios
 
@@ -183,7 +183,7 @@ Robot Framework will generate:
 
 ## Additional Test Scenarios
 
-The `additional_tests.robot` file contains extended test coverage beyond the required scenarios:
+The additional_tests.robot file contains extended test coverage beyond the required scenarios:
 
 ### 4. API Endpoint Validation Test
 - **Purpose**: Test API endpoint validation for different node types
@@ -221,40 +221,40 @@ The `additional_tests.robot` file contains extended test coverage beyond the req
 
 ### AuguryAPI Methods
 
-#### `api_get_endpoint_by_serial(serial_number: str) -> dict`
+#### api_get_endpoint_by_serial(serial_number: str) -> dict
 Returns endpoint information by serial number.
 
 **Parameters:**
-- `serial_number`: Endpoint serial number
+- serial_number: Endpoint serial number
 
 **Returns:**
 - Dictionary with endpoint details (serial_number, battery, hardware_type, uuid, version, backlog)
 
-#### `api_get_node_by_uuid(uuid: str) -> dict`
+#### api_get_node_by_uuid(uuid: str) -> dict
 Returns node information by UUID.
 
 **Parameters:**
-- `uuid`: Node UUID
+- uuid: Node UUID
 
 **Returns:**
 - Dictionary with node details (uuid, ota_channel, version, endpoints)
 
-#### `api_post_version_to_ota_channel(ota_channel: str, version_artifact: str) -> int`
+#### api_post_version_to_ota_channel(ota_channel: str, version_artifact: str) -> int
 Adds new version to OTA channel.
 
 **Parameters:**
-- `ota_channel`: OTA channel name
-- `version_artifact`: Version artifact name
+- ota_channel: OTA channel name
+- version_artifact: Version artifact name
 
 **Returns:**
 - 200 (success) or 400 (fail)
 
-#### `api_clear_ota_channel(ota_channel: str, version_artifact: str) -> int`
+#### api_clear_ota_channel(ota_channel: str, version_artifact: str) -> int
 Clears an artifact from the OTA channel.
 
 **Parameters:**
-- `ota_channel`: OTA channel name
-- `version_artifact`: Version artifact name
+- ota_channel: OTA channel name
+- version_artifact: Version artifact name
 
 **Returns:**
 - 200 (success) or 400 (fail)
