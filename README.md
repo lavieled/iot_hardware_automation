@@ -96,15 +96,16 @@ This project uses the following Python libraries and frameworks:
 1. **Clone the repository**
    
    git clone https://github.com/lavieled/iot_hardware_automation.git
+   
    cd iot_hardware_automation
    
 
-2. **Install dependencies**
+3. **Install dependencies**
    
    pip install -r requirements.txt
    
 
-3. **Verify installation**
+4. **Verify installation**
    
    python -m pytest tests/ -v
    
