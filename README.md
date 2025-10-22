@@ -269,8 +269,8 @@ Clears an artifact from the OTA channel.
 ### Testing Strategy
 - **Unit Tests**: Test individual components in isolation
 - **Integration Tests**: Test component interactions
-- **End-to-End Tests**: Test complete user scenarios
-- **Robot Framework**: Business-readable test scenarios
+- **End to End Tests**: Test complete user scenarios
+- **Robot Framework**: Readable test scenarios
 
 
 
